@@ -1,6 +1,7 @@
-package hog.frayonores.overrided_structures;
+package hog.frayonores.overridedstructures;
 
 import com.mojang.logging.LogUtils;
+import hog.frayonores.overridedstructures.Structures.ModStructures;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,7 +19,7 @@ import org.slf4j.Logger;
 public class Overrided_Structures
 {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "overrided_structures";
+    public static final String MODID = "overridedstructures";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
@@ -29,6 +30,7 @@ public class Overrided_Structures
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModStructures.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
